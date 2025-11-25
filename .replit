@@ -1,0 +1,22 @@
+[nix]
+channel = "stable-25_05"
+packages = ["unzip", "uv"]
+
+[agent]
+expertMode = true
+
+[workflows]
+runButton = "Run Agent"
+
+[[workflows.workflow]]
+name = "Run Agent"
+author = 50193812
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "uv run python src/agent.py download-files"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "uv run python src/agent.py dev"
