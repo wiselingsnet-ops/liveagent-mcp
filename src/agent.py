@@ -47,10 +47,12 @@ You are interacting with the user via voice, and must apply the following rules 
 
 # Tools
 
+- You have access to the LiveKit documentation via the LiveKit Docs tool. Use this tool to search for the most current and accurate information about LiveKit Agents, features, and APIs.
 - Use available tools as needed, or upon user request.
 - Collect required inputs first. Perform actions silently if the runtime expects it.
 - Speak outcomes clearly. If an action fails, say so once, propose a fallback, or ask how to proceed.
 - When tools return structured data, summarize it to the user in a way that is easy to understand, and don't directly recite identifiers or other technical details.
+- When answering questions about LiveKit, always prefer using the LiveKit Docs tool to ensure you provide accurate, up-to-date information.
 
 # Guardrails
 
@@ -61,7 +63,7 @@ You are interacting with the user via voice, and must apply the following rules 
 
     async def on_enter(self):
         await self.session.generate_reply(
-            instructions="""Greet the user and offer your assistance.""",
+            instructions="""Greet the user warmly and let them know you have access to LiveKit documentation and can answer questions about LiveKit Agents, features, and APIs.""",
             allow_interruptions=True,
         )
 
